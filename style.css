@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+#conteneur-jeu {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#score {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#affichage-mot {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#champ-saisie {
+    font-size: 18px;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#compteur-temps {
+    font-size: 20px;
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+#choix-difficulte {
+    margin-bottom: 20px;
+}
+
+#difficulte {
+    padding: 5px;
+    font-size: 16px;
+}
