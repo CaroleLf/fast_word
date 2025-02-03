@@ -7,23 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="conteneur-jeu">
-        <h1>Jeu de frappe rapide</h1>
-        
-        <!-- Sélection de la difficulté -->
+
         <div id="choix-difficulte">
-            <label for="difficulte">Choisir la difficulté :</label>
+            <label for="difficulte">Difficulté :</label>
             <select id="difficulte">
-                <option value="facile">Facile</option>
-                <option value="moyenne">Moyenne</option>
-                <option value="difficile">Difficile</option>
+            <option value="facile">Facile</option>
+            <option value="moyenne">Moyenne</option>
+            <option value="difficile">Difficile</option>
+            </select>
+            </div>
+    
+        <!-- Sélection de la difficulté -->
+        <h1 id="titre-jeu">Dactylo-turbo Game</h1>
+
+        <div id="choix-theme">
+            <label for="theme">Thème :</label>
+            <select id="theme">
+                <option value="vacances">Vacances</option>
+                <option value="liberte">Liberté</option>
+                <option value="voyages">Voyages</option>
+                <option value="animaux">Animaux</option>
+                <option value="cuisine">Cuisine</option>
+                <option value="nature">Nature</option>
             </select>
         </div>
-
-        <div id="score">Score: 0</div>
-        <div id="affichage-mot">...</div>
-        <input type="text" id="champ-saisie" placeholder="Tapez le mot ici" />
-        <div id="compteur-temps"></div>
+        <button id="meilleur-score-bouton">Meilleur Score : 0</button>
+        <button id="score-bouton">Score : 0</button>
+        <div id="conteneur-jeu">
+            <div id="affichage-mot">...</div>
+            <div id="compteur-temps"></div>
     </div>
 
     <script src="script.js"></script>
