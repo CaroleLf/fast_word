@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 id="titre-jeu">Dactylo-turbo Game</h1>
 
+    <div id="formulaire-joueur">
+        <form id="form-joueur" onsubmit="event.preventDefault(); demarrerJeu();">
+            <input type="text" id="nom-joueur" placeholder="Entrez votre nom" required>
+        </form>
+        <button type="submit" form="form-joueur">Commencer</button>
+    </div>
+
+    <div class="controles-jeu">
         <div id="choix-difficulte">
             <label for="difficulte">Difficulté :</label>
             <select id="difficulte">
-            <option value="facile">Facile</option>
-            <option value="moyenne">Moyenne</option>
-            <option value="difficile">Difficile</option>
+                <option value="facile">Facile</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="difficile">Difficile</option>
             </select>
-            </div>
-    
-        <!-- Sélection de la difficulté -->
-        <h1 id="titre-jeu">Dactylo-turbo Game</h1>
+        </div>
 
         <div id="choix-theme">
             <label for="theme">Thème :</label>
@@ -31,11 +37,35 @@
                 <option value="nature">Nature</option>
             </select>
         </div>
-        <button id="meilleur-score-bouton">Meilleur Score : 0</button>
-        <button id="score-bouton">Score : 0</button>
+
+        <div class="boutons-score">
+            <p id="score-bouton">Score : 0</p>
+            <p id="changer-nom-btn" class="btn-secondaire" style="display: none;" onclick="changementNom()">Changer de nom</p>
+        </div>
+    </div>
+
+    <div class="zone-jeu">
         <div id="conteneur-jeu">
             <div id="affichage-mot">...</div>
-            <div id="compteur-temps"></div>
+            <div class="timers">
+                <div id="compteur-temps">Temps partie: 2:00</div>
+                <div id="compteur-temps-mot">Temps mot: --</div>
+            </div>
+        </div>
+
+        <div id="tableau-scores" class="tableau-scores" style="display: none;">
+            <h3>Meilleurs Scores</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Nom</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="scores-body"></tbody>
+            </table>
+        </div>
     </div>
 
     <script src="script.js"></script>
