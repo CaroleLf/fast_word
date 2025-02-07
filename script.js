@@ -45,9 +45,9 @@ const themes = {
 };
 
 let nomJoueur = '';
+// Convertit une chaine de texte en JSON 
 let scoresJoueurs = JSON.parse(localStorage.getItem('scoresJoueurs')) || {};
 let jeuCommence = false;
-
 let timerGlobal;
 let timerMot;
 const TEMPS_PARTIE = 120; // 2 minutes
@@ -76,7 +76,6 @@ function afficherNouveauMot() {
 
   // Récupérer l'élément d'affichage
   const affichageMot = document.getElementById('affichage-mot');
-  console.log(affichageMot);
   // Choisir un mot aléatoire
   const theme = document.getElementById('theme').value;
   const motsTheme = themes[theme];
@@ -91,7 +90,9 @@ function afficherNouveauMot() {
 }
 
 function demarrerTimerMot() {
-  if (timerMot) clearInterval(timerMot);
+  if (timerMot) {
+    clearInterval(timerMot);
+  }
 
   const difficulte = document.getElementById('difficulte').value;
   let tempsRestantMot = TEMPS_PAR_MOT[difficulte];
@@ -148,9 +149,6 @@ function colorerTexte() {
 
   // Mettre à jour le texte affiché avec les couleurs appropriées
   affichageMot.innerHTML = texteColoré;
-  console.log('Le texte est saisi   ' + texteSaisi);
-  console.log('Le texte est attendu ' + motActuel);
-
   // Vérifier si la saisie complète est correcte
   if (texteSaisi === motActuel) {
     score += 10; // Ajouter des points
@@ -193,12 +191,16 @@ document.getElementById('theme').addEventListener('change', function () {
   afficherNouveauMot(); // Charger un nouveau mot du thème sélectionné
 });
 
+document.getElementById('difficulte').addEventListener('change', function () {
+    afficherNouveauMot();   });
+
+
 // Changer la durée du temps en fonction de la difficulté sélectionnée
 document.getElementById('difficulte').addEventListener('change', function () {
+    scoreBouton = document.getElementById('score-bouton');
   // Réinitialiser le score et ajuster le temps
   score = 0; // Réinitialiser le score à zéro
   scoreBouton.textContent = `Score : ${score}`; // Réinitialiser le score dans le bouton
-
   afficherNouveauMot(); // Recharger un nouveau mot avec le temps réinitialisé
 });
 
@@ -276,6 +278,7 @@ function finDePartie() {
   // Sauvegarder le score si c'est le meilleur
   if (!scoresJoueurs[nomJoueur] || score > scoresJoueurs[nomJoueur]) {
     scoresJoueurs[nomJoueur] = score;
+    // Convertit scoresJoueurs en une chaîne de texte au format JSON
     localStorage.setItem('scoresJoueurs', JSON.stringify(scoresJoueurs));
   }
 
